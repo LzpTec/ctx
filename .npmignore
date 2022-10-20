@@ -7,3 +7,4 @@ tslint.json
 test
 stryker.conf.json
 .bettercodehub.yml
+examples/
