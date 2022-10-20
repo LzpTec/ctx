@@ -42,19 +42,19 @@ export class AsyncContext {
      * @param {T} value
      * @returns {import('./context').Context | undefined}
      */
-    set = <T>(token: ContextToken<T>, value: T): Context | undefined => this.getStore().set(token, value);
+    set = <T>(token: ContextToken<T>, value: T): Context => this.getStore().set(token, value);
 
     /**
      * 
      * @param {ContextToken<unknown>} token 
      * @returns {import('./context').Context | undefined}
      */
-    delete = (token: ContextToken<unknown>): Context | undefined => this.getStore().delete(token);
+    delete = (token: ContextToken<unknown>): Context => this.getStore().delete(token);
 
     /**
      * @returns {Array<ContextToken<unknown>> | undefined} a list of tokens currently stored in the context.
      */
-    keys = (): Array<ContextToken<unknown>> | undefined => this.getStore().keys();
+    keys = (): Array<ContextToken<unknown>> => this.getStore().keys();
 
 }
 

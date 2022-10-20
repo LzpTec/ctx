@@ -1,5 +1,5 @@
 {
-  "name": "@lzptec/context-manager",
+  "name": "@lzptec/ctx",
   "version": "0.0.1",
   "description": "A lightweight async context manager for typescript and javascript",
   "author": "André Posso <admin@lzptec.com>",
@@ -19,8 +19,8 @@
     "test": "ava test.ts",
     "build": "npm run clean && tsc",
     "clean": "node -e \"require('fs-extra').emptyDirSync('dist');\"",
-    "prepublish": "npm run build",
     "dev": "ts-node ./test.ts",
+    "prepare": "npm run build",
     "tsc": "tsc"
   },
   "devDependencies": {

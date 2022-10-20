@@ -10,7 +10,7 @@ test('Async Context', async (t) => {
         async run() {
             asyncContext.run(() => this.runInContext());
             // Outside async context
-            t.is(asyncContext.get(token), undefined);
+            t.throws(() => asyncContext.get(token));
         }
 
         private async runInContext() {
