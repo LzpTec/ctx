@@ -1,30 +1,28 @@
-```ts
+# @lzptec/ctx
+## Dead Simple Context Manager
 
-import {AsyncCTX, AsyncContext, ContextToken, Context} from '@lzptec/ctx';
+```ts
+import { AsyncCTX, AsyncContext, ContextToken, Context } from '@lzptec/ctx';
 
 const token = new ContextToken<number>();
 const tokenWithDefault = new ContextToken<number>(() => 123);
 
-class Main{
-
+class Main {
     private context = new AsyncContext();
 
     private async run(){
-        context.run(runInContext);
+        this.context.run(() => runInContext());
     }
 
     private async runInContext(){
-        context.set(token, 987);
+        this.context.set(token, 987);
         sec();
     }
 
     private async sec(){
-        const t = context.get(token);
-        console.log(t); // 987
+        console.log(this.context.get(token)); // 987
     }
 
 }
-
-new Main().run();
 
 ```
