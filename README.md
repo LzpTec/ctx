@@ -6,23 +6,23 @@ import { AsyncCTX, AsyncContext, ContextToken, Context } from '@lzptec/ctx';
 
 const token = new ContextToken<number>();
 const tokenWithDefault = new ContextToken<number>(() => 123);
+const context = new AsyncContext();
 
-class Main {
-    private context = new AsyncContext();
+const printContextValue = () => {
+    console.log(context.get(token));
+};
 
-    private async run(){
-        this.context.run(() => runInContext());
-    }
+const run = () => {
+    await context.run(() => {
+        // Async Context
+        context.set(token, 987);
+        printContextValue(); // Print token value 987
+    });
 
-    private async runInContext(){
-        this.context.set(token, 987);
-        sec();
-    }
+    // Outside Async Context 
+    printContextValue(); // Print undefined
+};
 
-    private async sec(){
-        console.log(this.context.get(token)); // 987
-    }
-
-}
+run();
 
 ```

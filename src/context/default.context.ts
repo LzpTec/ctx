@@ -13,9 +13,10 @@ export class AsyncContext {
     /**
      * 
      * @param {RunCallback} callback 
+     * @returns {T | Promise<T>}
      */
-    run<T = any>(callback: () => T | Promise<T>) {
-        AsyncContext.Storage.run(new Context(), callback);
+    run<T = any>(callback: () => T | Promise<T>): T | Promise<T> {
+        return AsyncContext.Storage.run(new Context(), callback);
     }
 
     /**
