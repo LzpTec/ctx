@@ -2,7 +2,7 @@ import { AsyncLocalStorage } from 'async_hooks';
 import { Context, ContextToken } from './context';
 
 export class AsyncContext {
-    static readonly Storage: AsyncLocalStorage<Context> = new AsyncLocalStorage();
+    private readonly storage: AsyncLocalStorage<Context> = new AsyncLocalStorage();
 
     /**
      * @template T
@@ -16,7 +16,15 @@ export class AsyncContext {
      * @returns {T | Promise<T>}
      */
     run<T = any>(callback: () => T | Promise<T>): T | Promise<T> {
-        return AsyncContext.Storage.run(new Context(), callback);
+        return this.storage.run(new Context(), callback);
+    }
+
+    private getStore() {
+        const storage = this.storage.getStore();
+        if (!storage)
+            throw new ReferenceError('Cannot access the context(Outside of context)');
+
+        return storage;
     }
 
     /**
@@ -25,7 +33,7 @@ export class AsyncContext {
      * @param {ContextToken<T>} token 
      * @returns {T | undefined}
      */
-    get = <T>(token: ContextToken<T>): T | undefined => AsyncContext.Storage.getStore()?.get(token);
+    get = <T>(token: ContextToken<T>): T | undefined => this.getStore().get(token);
 
     /**
      * 
@@ -34,19 +42,19 @@ export class AsyncContext {
      * @param {T} value
      * @returns {import('./context').Context | undefined}
      */
-    set = <T>(token: ContextToken<T>, value: T): Context | undefined => AsyncContext.Storage.getStore()?.set(token, value);
+    set = <T>(token: ContextToken<T>, value: T): Context | undefined => this.getStore().set(token, value);
 
     /**
      * 
      * @param {ContextToken<unknown>} token 
      * @returns {import('./context').Context | undefined}
      */
-    delete = (token: ContextToken<unknown>): Context | undefined => AsyncContext.Storage.getStore()?.delete(token);
+    delete = (token: ContextToken<unknown>): Context | undefined => this.getStore().delete(token);
 
     /**
      * @returns {Array<ContextToken<unknown>> | undefined} a list of tokens currently stored in the context.
      */
-    keys = (): Array<ContextToken<unknown>> | undefined => AsyncContext.Storage.getStore()?.keys();
+    keys = (): Array<ContextToken<unknown>> | undefined => this.getStore().keys();
 
 }
 
