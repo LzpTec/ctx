@@ -31,30 +31,40 @@ export class AsyncContext {
      * 
      * @template T
      * @param {ContextToken<T>} token 
-     * @returns {T | undefined}
+     * @param {T} value
+     * @returns {AsyncContext | undefined}
      */
-    get = <T>(token: ContextToken<T>): T | undefined => this.getStore().get(token);
+    public set<T>(token: ContextToken<T>, value: T): AsyncContext {
+        this.getStore().set(token, value);
+        return this;
+    }
 
     /**
      * 
      * @template T
      * @param {ContextToken<T>} token 
-     * @param {T} value
-     * @returns {import('./context').Context | undefined}
+     * @returns {T | undefined}
      */
-    set = <T>(token: ContextToken<T>, value: T): Context => this.getStore().set(token, value);
+    public get<T>(token: ContextToken<T>): T | undefined {
+        return this.getStore().get(token);
+    }
 
     /**
      * 
      * @param {ContextToken<unknown>} token 
-     * @returns {import('./context').Context | undefined}
+     * @returns {AsyncContext | undefined}
      */
-    delete = (token: ContextToken<unknown>): Context => this.getStore().delete(token);
+    public delete(token: ContextToken<unknown>): AsyncContext {
+        this.getStore().delete(token);
+        return this;
+    }
 
     /**
      * @returns {Array<ContextToken<unknown>> | undefined} a list of tokens currently stored in the context.
      */
-    keys = (): Array<ContextToken<unknown>> => this.getStore().keys();
+    public keys(): Array<ContextToken<unknown>> {
+        return this.getStore().keys();
+    }
 
 }
 

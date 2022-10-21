@@ -4,6 +4,10 @@
   "description": "A lightweight async context manager for typescript and javascript",
   "author": "André Posso <admin@lzptec.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LzpTec/ctx.git"
+  },
   "keywords": [
     "Context",
     "Context-Manager",
@@ -17,10 +21,10 @@
   "scripts": {
     "start": "tsc -w",
     "test": "ava test.ts",
-    "build": "npm run clean && tsc",
+    "build": "pnpm run clean && tsc",
     "clean": "node -e \"require('fs-extra').emptyDirSync('dist');\"",
     "dev": "ts-node ./test.ts",
-    "prepare": "npm run build",
+    "prepare": "pnpm run build",
     "tsc": "tsc"
   },
   "devDependencies": {
