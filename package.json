@@ -11,28 +11,28 @@
   "keywords": [
     "Context",
     "Context-Manager",
-    "Proxy",
     "typescript",
     "javascript",
-    "async"
+    "async",
+    "backend",
+    "nodejs"
   ],
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "start": "tsc -w",
-    "test": "ava test.ts",
-    "build": "pnpm run clean && tsc",
-    "clean": "node -e \"require('fs-extra').emptyDirSync('dist');\"",
-    "dev": "ts-node ./test.ts",
-    "prepare": "pnpm run build",
-    "tsc": "tsc"
+    "build": "tsup src/index.ts --dts --clean",
+    "prepublish": "pnpm run build",
+    "tsc": "tsc",
+    "test": "ava test.ts"
   },
   "devDependencies": {
     "@types/node": "^16.11.00",
     "ava": "^4.3.3",
-    "fs-extra": "^10.1.0",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
+    "tsup": "^6.3.0",
     "typescript": "^4.8.4"
   },
   "ava": {
@@ -42,5 +42,12 @@
     "require": [
       "ts-node/register"
     ]
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
   }
 }

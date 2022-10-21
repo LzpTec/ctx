@@ -1,6 +1,7 @@
 !dist/
 .travis.yml
 *.log
+.nvmrc
 npm-debug.log*
 tsconfig.json
 tslint.json
@@ -8,3 +9,6 @@ test
 stryker.conf.json
 .bettercodehub.yml
 examples/
+*.ts
+!*.d.ts
+pnpm-lock.yaml
