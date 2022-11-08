@@ -1,5 +1,5 @@
 # @lzptec/ctx [WIP]
-## Dead Simple Context Manager
+## Dead simple context manager for typescript and javascript
 
 ```ts
 import { AsyncCTX, AsyncContext, ContextToken, Context } from '@lzptec/ctx';
@@ -20,7 +20,7 @@ const run = () => {
     });
 
     // Outside Async Context 
-    printContextValue(); // Print undefined
+    printContextValue(); // throw a ReferenceError
 };
 
 run();

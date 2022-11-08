@@ -1,17 +1,4 @@
-export class ContextToken<T> {
-    #defaultValue: () => (T | undefined);
-
-    constructor(defaultValue?: () => T) {
-        if (typeof defaultValue === 'function')
-            this.#defaultValue = defaultValue;
-        else
-            this.#defaultValue = () => undefined;
-    }
-
-    get default(): () => (T | undefined) {
-        return this.#defaultValue;
-    }
-}
+import { ContextToken } from './context-token';
 
 export class Context {
     #map = new Map<ContextToken<unknown>, unknown>();
@@ -64,4 +51,3 @@ export class Context {
         return [...this.#map.keys()];
     }
 }
-
