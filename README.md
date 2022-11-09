@@ -1,5 +1,5 @@
 # @lzptec/ctx [WIP]
-## Dead simple context manager for typescript and javascript
+## Dead simple context manager for Nodejs
 
 ```ts
 import { AsyncCTX, AsyncContext, ContextToken, Context } from '@lzptec/ctx';
@@ -14,8 +14,11 @@ const printContextValue = () => {
 
 const run = () => {
     await context.run(() => {
+        printContextValue(); // Print undefined
+
         // Async Context
         context.set(token, 987);
+
         printContextValue(); // Print token value 987
     });
 

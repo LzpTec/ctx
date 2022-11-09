@@ -1,7 +1,7 @@
 {
   "name": "@lzptec/ctx",
-  "version": "0.0.1-1",
-  "description": "Dead simple context manager for typescript and javascript",
+  "version": "0.0.2-0",
+  "description": "Dead simple context manager for Nodejs",
   "author": "André Posso <admin@lzptec.com>",
   "license": "MIT",
   "repository": {
@@ -9,10 +9,11 @@
     "url": "git+https://github.com/LzpTec/ctx.git"
   },
   "keywords": [
-    "Context",
-    "Context-Manager",
+    "context",
+    "context-manager",
     "typescript",
     "javascript",
+    "async-local-storage",
     "async",
     "backend",
     "nodejs"
