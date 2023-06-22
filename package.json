@@ -1,6 +1,6 @@
 {
   "name": "@lzptec/ctx",
-  "version": "0.0.2-0",
+  "version": "0.0.3",
   "description": "Dead simple context manager for Nodejs",
   "author": "André Posso <admin@lzptec.com>",
   "license": "MIT",
