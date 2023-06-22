@@ -4,7 +4,7 @@
         "declaration": true,
         "experimentalDecorators": false,
         "emitDecoratorMetadata": false,
-        "target": "ES2017",
+        "target": "ES2018",
         "module": "CommonJS",
         "moduleResolution": "node",
         "outDir": "./dist",
