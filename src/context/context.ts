@@ -33,6 +33,18 @@ export class Context {
     }
 
     /**
+     * Check if there is a value associated with the provided token.
+     *
+     * @template T
+     * @param {ContextToken<T>} token The reference to an instance of `ContextToken`.
+     *
+     * @returns {boolean}
+     */
+    has<T>(token: ContextToken<T>): boolean {
+        return this.#map.has(token);
+    }
+
+    /**
      * Delete the value associated with the given token.
      *
      * @param {ContextToken<unknown>} token The reference to an instance of `ContextToken`.
