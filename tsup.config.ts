@@ -10,5 +10,5 @@ export default defineConfig({
     dts: true,
     minify: true,
     platform: 'node',
-    target: 'es2018'
+    target: 'es2021'
 });
