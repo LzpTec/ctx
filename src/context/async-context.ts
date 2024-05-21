@@ -138,20 +138,4 @@ export class AsyncContext {
         return this;
     }
 
-    /**
-     * Safe Version.
-     * 
-     * @returns {Array<ContextToken<unknown>>} a list of tokens currently stored in the context.
-     */
-    public keysSafe(): Array<ContextToken<unknown>> {
-        return this.#getStorageSafe()?.keys() ?? [];
-    }
-
-    /**
-     * @returns {Array<ContextToken<unknown>>} a list of tokens currently stored in the context.
-     */
-    public keys(): Array<ContextToken<unknown>> {
-        return this.#getStorage().keys();
-    }
-
 }
