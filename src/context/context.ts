@@ -1,7 +1,7 @@
 import { ContextToken } from './context-token';
 
 export class Context {
-    #map = new Map<ContextToken<unknown>, unknown>();
+    #map = new WeakMap<ContextToken<unknown>, unknown>();
 
     /**
      * Store a value in the context. If a value is already present it will be overwritten.
