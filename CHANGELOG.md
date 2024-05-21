@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0](https://github.com/LzpTec/ctx/compare/v0.0.6...v1.0.0) (2024-05-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Removed method `keys` from `Context`.
+* Removed methods `keys` and `keysSafe` from `AsyncContext`.
+* Target ES2021.
+
+### Features
+
+* Removed method `keys` from `Context`. ([eb52256](https://github.com/LzpTec/ctx/commit/eb522569e19272f3ddc2cd608c23b7abdb04f97e))
+* Removed methods `keys` and `keysSafe` from `AsyncContext`. ([d900f99](https://github.com/LzpTec/ctx/commit/d900f992c96851718080ac36271356dc1f0914c4))
+* Target ES2021. ([2549e35](https://github.com/LzpTec/ctx/commit/2549e352bf62651af0743c1ce27788a43803e611))
+
 ## 0.0.6 (2024-01-22)
 
 
