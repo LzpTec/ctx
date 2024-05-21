@@ -56,10 +56,4 @@ export class Context {
         return this;
     }
 
-    /**
-     * @returns {Array<ContextToken<unknown>>} a list of tokens currently stored in the context.
-     */
-    keys(): Array<ContextToken<unknown>> {
-        return [...this.#map.keys()];
-    }
 }
